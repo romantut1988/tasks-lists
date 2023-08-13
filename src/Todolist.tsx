@@ -1,7 +1,7 @@
 import React from "react";
 
 type PropsType = {
-    truck: string
+    title: string
     tasks: Task[]
 }
 
@@ -14,7 +14,7 @@ type Task = {
 export const Todolist = (props: PropsType) => {
     return (
         <div>
-            <h3>{props.truck}</h3>
+            <h3>{props.title}</h3>
             <div>
                 <input/>
                 <button>+</button>
@@ -22,7 +22,11 @@ export const Todolist = (props: PropsType) => {
             <ul>
                 {props.tasks.map(el => {
                     return (
-                        <li key={el.id}><input type="checkbox" checked={el.isDone}/> <span>{el.title}</span></li>
+                        <li key={el.id}>
+                            <button>X</button>
+                            <input type="checkbox" checked={el.isDone}/>
+                            <span>{el.title}</span>
+                        </li>
                     )
                 })}
             </ul>
